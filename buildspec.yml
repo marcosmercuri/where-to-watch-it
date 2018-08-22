@@ -8,8 +8,6 @@ phases:
      - echo "pre_build step"
  build:
    commands:
-     - aws opsworks describe-my-user-profile
-     - aws configure list
      - aws s3 sync --delete ./website "s3://sync.movies" --acl public-read
  post_build:
    commands:
