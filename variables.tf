@@ -13,3 +13,17 @@ variable "sync_bucket_subdomain" {
 variable "root_domain" {
     default = "movies"
 }
+
+variable "pipeline_name" {
+  default = "static-website"
+}
+
+variable "github_username" {
+}
+
+variable "github_token" {
+}
+
+variable "github_repo" {
+	default = "where-to-watch-it"
+}

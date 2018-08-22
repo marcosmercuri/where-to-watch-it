@@ -24,20 +24,3 @@ resource "aws_s3_bucket" "frontend" {
     }
 }
 
-/**
-resource "aws_s3_bucket_object" "frontend_index" {
-  bucket = "${aws_s3_bucket.frontend.id}"
-  key    = "index.html"
-  source = "index.html"
-  etag   = "${md5(file("index.html"))}"
-  acl 	 = "public-read"
-}
-
-resource "aws_s3_bucket_object" "frontend_404" {
-  bucket = "${aws_s3_bucket.frontend.id}"
-  key    = "404.html"
-  source = "404.html"
-  etag   = "${md5(file("404.html"))}"
-  acl 	 = "public-read"
-}
-*/
