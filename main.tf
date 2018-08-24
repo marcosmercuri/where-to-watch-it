@@ -16,11 +16,11 @@ resource "aws_dynamodb_table" "unwatched-top-movies-dynamodb-table" {
 }
 
 resource "aws_s3_bucket" "frontend" {
-    bucket = "${var.sync_bucket_subdomain}.${var.root_domain}"
+  bucket = "${var.sync_bucket_subdomain}.${var.root_domain}"
 
-    website {
-        index_document = "index.html"
-        error_document = "404.html"
-    }
+  website {
+    index_document = "index.html"
+    error_document = "404.html"
+  }
 }
 
