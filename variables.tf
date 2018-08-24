@@ -1,9 +1,5 @@
 variable "profile" {
-    description = "AWS credentials profile you want to use"
-}
-
-variable "region" {
-  default = "eu-west-1"
+	description = "AWS credentials profile you want to use"
 }
 
 variable "sync_bucket_subdomain" {
@@ -26,4 +22,20 @@ variable "github_token" {
 
 variable "github_repo" {
 	default = "where-to-watch-it"
+}
+
+variable "bucket" {
+  description = "AWS S3 Bucket name for Terraform state"
+}
+
+variable "dynamodb_table" {
+  description = "AWS DynamoDB table for state locking"
+}
+
+variable "key" {
+  description = "Key for Terraform state at S3 bucket"
+}
+
+variable "region" {
+  description = "AWS Region"
 }
