@@ -14,16 +14,6 @@ variable "pipeline_name" {
   default = "static-website"
 }
 
-variable "github_username" {
-}
-
-variable "github_token" {
-}
-
-variable "github_repo" {
-	default = "where-to-watch-it"
-}
-
 variable "bucket" {
   description = "AWS S3 Bucket name for Terraform state"
 }

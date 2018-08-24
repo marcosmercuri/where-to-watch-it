@@ -146,6 +146,14 @@ resource "aws_codebuild_project" "build_project" {
   }
 }
 
+
+data "aws_kms_secrets" "github-token" {
+  secret {
+    name    = "token"
+    payload = "AQICAHh/7M/QHhTMUaMVNEwaaqJnYVQnhiwVpFZrracUdIhELQF+GlhCULRIyTYvPaVztRpsAAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDOucDEegEdLNAmhy5wIBEIBDEEp8K6w36oQ4Kx3z+lZGbheCQjzQ2095E7tYUueN9BxFr/StPeLxbB35Z8cNYS6SfV4ptbwhd1HFy27LjM8d7jVEDA=="
+  }
+}
+
 # Full CodePipeline
 resource "aws_codepipeline" "codepipeline" {
   name     = "${var.pipeline_name}-codepipeline"
@@ -168,9 +176,9 @@ resource "aws_codepipeline" "codepipeline" {
       output_artifacts = ["code"]
 
       configuration {
-        Owner                = "${var.github_username}"
-        OAuthToken           = "${var.github_token}"
-        Repo                 = "${var.github_repo}"
+        Owner                = "marcosmercuri"
+        OAuthToken           = "${data.aws_kms_secrets.github-token.plaintext["token"]}"
+        Repo                 = "where-to-watch-it"
         Branch               = "master"
         PollForSourceChanges = "true"
       }
